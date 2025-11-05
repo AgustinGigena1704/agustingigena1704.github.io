@@ -40,7 +40,7 @@ builder.Logging.AddSentry(o => o.InitializeSdk = false);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress+"/Desport/") });
+builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddSingleton<CookieService>();
 builder.Services.AddSingleton<IAuthService, FirebaseAuthService>();
 builder.Services.AddAuthorizationCore();
