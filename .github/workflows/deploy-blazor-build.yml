@@ -1,27 +1,26 @@
 # .github/workflows/deploy-blazor-build.yml
-name: Build Blazor for Render Static Site
+name: Build Blazor & Trigger Render Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main ] # Se ejecuta automáticamente en cada push a main
   workflow_dispatch: # Permite ejecutar manualmente
 
 env:
   DOTNET_VERSION: '8.0.x'
-  BLAZOR_PROJECT_NAME: CCC # Asegúrate de que esto coincida con el nombre de tu proyecto Blazor
-  # CORRECCIÓN AQUÍ: Usamos la variable directamente en la string
-  BLAZOR_PROJECT_PATH: src/CCC/CCC.csproj # Ruta al archivo .csproj. Ahora es una string literal.
-  # Si quieres que sea dinámico, la mejor forma es reconstruirla en cada paso
-  # o definir BLazor_Project_Path usando solo el nombre y construyendo en el run.
-  DEPLOY_DIR: deploy/wwwroot # Directorio donde se almacenarán los archivos para Render
+  BLAZOR_PROJECT_NAME: CCC
+  BLAZOR_PROJECT_PATH: src/CCC/CCC.csproj # Ruta al archivo .csproj
+  DEPLOY_DIR: deploy # Directorio donde se almacenarán los archivos para Render
 
 jobs:
-  build-blazor:
-    name: Build Blazor WebAssembly
+  build-and-deploy-blazor: # Renombramos el job
+    name: Build Blazor & Deploy to Render
     runs-on: ubuntu-latest
     
     permissions:
-      contents: write 
+      contents: write # Para el git-auto-commit-action
+      # No necesitas 'pages: write' ni 'id-token: write' porque ya no desplegamos en GitHub Pages directamente
+      # Solo escribimos al repositorio y luego le decimos a Render que lea ese repo
 
     steps:
     - name: Checkout código
@@ -33,7 +32,6 @@ jobs:
         dotnet-version: ${{ env.DOTNET_VERSION }}
     
     - name: Restore dependencies
-      # Acceso correcto a las variables de entorno dentro de un paso 'run'
       run: dotnet restore ${{ env.BLAZOR_PROJECT_PATH }}
     
     - name: Publish Blazor WebAssembly
@@ -41,11 +39,11 @@ jobs:
         dotnet publish ${{ env.BLAZOR_PROJECT_PATH }} \
           -c Release \
           -o ${{ env.DEPLOY_DIR }} \
-          /p:BasePath=/
+          /p:BasePath=/ # Render Static Site lo servirá desde su raíz
         
         echo "✅ Blazor WebAssembly publicado en ${{ env.DEPLOY_DIR }}"
     
-    - name: Configurar URL de API (opcional, si Blazor lo lee de appsettings.json)
+    - name: Configurar URL de API
       run: |
         cat > ${{ env.DEPLOY_DIR }}/appsettings.json <<EOF
         {
@@ -55,9 +53,28 @@ jobs:
         
         echo "✅ API configurada: ${{ secrets.API_BASE_URL }}"
 
+    - name: Configurar para Static Site
+      run: |
+        touch ${{ env.DEPLOY_DIR }}/.nojekyll # Buena práctica para static sites
+        cp ${{ env.DEPLOY_DIR }}/wwwwroot/index.html ${{ env.DEPLOY_DIR }}/wwwwroot/404.html # Muy importante para SPA routing
+        echo "✅ Configuración adicional para Static Site completada."
+
     - name: Commit y Push los archivos generados
+      id: commit # Añadimos un ID para referenciar el output
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "Build: Blazor WASM for Render Static Site"
         branch: main
         file_pattern: ${{ env.DEPLOY_DIR }}/**
+        # Si esta acción no hace cambios (ej. no hay nuevos builds), no crea un commit.
+        # Es importante que el siguiente paso de Render se ejecute *solo si hay un commit* o *siempre*.
+        # Para la mayoría de los casos, es mejor que siempre se intente el deploy de Render si la build de Blazor fue exitosa.
+
+    - name: Trigger Render Frontend Deploy Hook # ¡NUEVO PASO!
+      # Este paso se ejecutará si el paso anterior fue exitoso, independientemente de si hubo un commit.
+      # Si prefieres que SOLO se dispare si hubo cambios y un commit, puedes añadir 'if: steps.commit.outputs.commit_hash'
+      run: |
+        echo "🚀 Triggering Render frontend deploy..."
+        # Usamos curl para llamar al deploy hook de Render
+        curl -X GET "${{ secrets.RENDER_FRONTEND_DEPLOY_HOOK }}" # Los deploy hooks de Render suelen funcionar con GET
+        echo "✅ Render frontend deploy hook triggered."
