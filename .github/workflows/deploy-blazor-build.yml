@@ -76,5 +76,5 @@ jobs:
       run: |
         echo "🚀 Triggering Render frontend deploy..."
         # Usamos curl para llamar al deploy hook de Render
-        curl -X GET "${{ secrets.RENDER_FRONTEND_DEPLOY_HOOK }}" # Los deploy hooks de Render suelen funcionar con GET
+        curl -X GET "${{ secrets.RENDER_DEPLOY_HOOK }}" # Los deploy hooks de Render suelen funcionar con GET
         echo "✅ Render frontend deploy hook triggered."
