@@ -3,24 +3,23 @@ name: Build Blazor & Trigger Render Deploy
 
 on:
   push:
-    branches: [ main ] # Se ejecuta automáticamente en cada push a main
-  workflow_dispatch: # Permite ejecutar manualmente
+    branches: [ main ]
+  workflow_dispatch:
 
 env:
   DOTNET_VERSION: '8.0.x'
   BLAZOR_PROJECT_NAME: CCC
-  BLAZOR_PROJECT_PATH: src/CCC/CCC.csproj # Ruta al archivo .csproj
-  DEPLOY_DIR: deploy # Directorio donde se almacenarán los archivos para Render
+  BLAZOR_PROJECT_PATH: src/CCC/CCC.csproj
+  BUILD_OUTPUT_ROOT: deploy # La raíz donde dotnet publish colocará su salida
+  PUBLISH_DIR: ${{ env.BUILD_OUTPUT_ROOT }}/wwwroot # LA CARPETA FINAL CON LOS ARCHIVOS A SERVIR
 
 jobs:
-  build-and-deploy-blazor: # Renombramos el job
+  build-and-deploy-blazor:
     name: Build Blazor & Deploy to Render
     runs-on: ubuntu-latest
     
     permissions:
-      contents: write # Para el git-auto-commit-action
-      # No necesitas 'pages: write' ni 'id-token: write' porque ya no desplegamos en GitHub Pages directamente
-      # Solo escribimos al repositorio y luego le decimos a Render que lea ese repo
+      contents: write 
 
     steps:
     - name: Checkout código
@@ -38,14 +37,15 @@ jobs:
       run: |
         dotnet publish ${{ env.BLAZOR_PROJECT_PATH }} \
           -c Release \
-          -o ${{ env.DEPLOY_DIR }} \
+          -o ${{ env.BUILD_OUTPUT_ROOT }} \
           /p:BasePath=/ # Render Static Site lo servirá desde su raíz
         
-        echo "✅ Blazor WebAssembly publicado en ${{ env.DEPLOY_DIR }}"
+        echo "✅ Blazor WebAssembly publicado en ${{ env.BUILD_OUTPUT_ROOT }}"
     
     - name: Configurar URL de API
       run: |
-        cat > ${{ env.DEPLOY_DIR }}/appsettings.json <<EOF
+        # Usamos PUBLISH_DIR que apunta a wwwroot
+        cat > ${{ env.PUBLISH_DIR }}/appsettings.json <<EOF
         {
           "ApiBaseUrl": "${{ secrets.API_BASE_URL }}"
         }
@@ -55,26 +55,23 @@ jobs:
 
     - name: Configurar para Static Site
       run: |
-        touch ${{ env.DEPLOY_DIR }}/.nojekyll # Buena práctica para static sites
-        cp ${{ env.DEPLOY_DIR }}/wwwwroot/index.html ${{ env.DEPLOY_DIR }}/wwwwroot/404.html # Muy importante para SPA routing
+        # Usamos PUBLISH_DIR que apunta a wwwroot
+        touch ${{ env.PUBLISH_DIR }}/.nojekyll
+        cp ${{ env.PUBLISH_DIR }}/index.html ${{ env.PUBLISH_DIR }}/404.html
         echo "✅ Configuración adicional para Static Site completada."
 
     - name: Commit y Push los archivos generados
-      id: commit # Añadimos un ID para referenciar el output
+      id: commit
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "Build: Blazor WASM for Render Static Site"
         branch: main
-        file_pattern: ${{ env.DEPLOY_DIR }}/**
-        # Si esta acción no hace cambios (ej. no hay nuevos builds), no crea un commit.
-        # Es importante que el siguiente paso de Render se ejecute *solo si hay un commit* o *siempre*.
-        # Para la mayoría de los casos, es mejor que siempre se intente el deploy de Render si la build de Blazor fue exitosa.
+        file_pattern: ${{ env.BUILD_OUTPUT_ROOT }}/** # ¡IMPORTANTE! Commit de toda la carpeta 'deploy'
+        # Esto asegura que todo el contenido generado en 'deploy/' se suba.
 
-    - name: Trigger Render Frontend Deploy Hook # ¡NUEVO PASO!
-      # Este paso se ejecutará si el paso anterior fue exitoso, independientemente de si hubo un commit.
-      # Si prefieres que SOLO se dispare si hubo cambios y un commit, puedes añadir 'if: steps.commit.outputs.commit_hash'
+    - name: Trigger Render Frontend Deploy Hook
       run: |
         echo "🚀 Triggering Render frontend deploy..."
-        # Usamos curl para llamar al deploy hook de Render
-        curl -X GET "${{ secrets.RENDER_DEPLOY_HOOK }}" # Los deploy hooks de Render suelen funcionar con GET
+        # Utilicemos el nombre de secret correcto, que es RENDER_FRONTEND_DEPLOY_HOOK
+        curl -X GET "${{ secrets.RENDER_FRONTEND_DEPLOY_HOOK }}" 
         echo "✅ Render frontend deploy hook triggered."
