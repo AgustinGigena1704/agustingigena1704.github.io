@@ -124,6 +124,7 @@ if (!string.IsNullOrEmpty(firebaseJson))
     }
     catch (Exception ex)
     {
+        Console.WriteLine("FIREBASE_CONFIG: " + firebaseJson);
         throw new InvalidOperationException("El JSON proporcionado en la variable de entorno FIREBASE_CONFIG no es válido.", ex);
     }
 }
