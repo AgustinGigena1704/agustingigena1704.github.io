@@ -9,9 +9,10 @@ on:
 env:
   DOTNET_VERSION: '8.0.x'
   BLAZOR_PROJECT_NAME: CCC
-  BLAZOR_PROJECT_PATH: src/CCC/CCC.csproj
-  BUILD_OUTPUT_ROOT: deploy # La raíz donde dotnet publish colocará su salida
-  PUBLISH_DIR: ${{ env.BUILD_OUTPUT_ROOT }}/wwwroot # LA CARPETA FINAL CON LOS ARCHIVOS A SERVIR
+  BLAZOR_PROJECT_PATH: src/CCC/CCC.csproj # Ruta al archivo .csproj
+  BUILD_OUTPUT_ROOT_FOLDER_NAME: deploy # Solo el nombre de la carpeta raíz de salida
+  # No definimos PUBLISH_DIR aquí para evitar la interpolación inválida en 'env'
+  # La construiremos en los pasos 'run'
 
 jobs:
   build-and-deploy-blazor:
@@ -35,17 +36,19 @@ jobs:
     
     - name: Publish Blazor WebAssembly
       run: |
+        # Usamos BUILD_OUTPUT_ROOT_FOLDER_NAME para el -o
         dotnet publish ${{ env.BLAZOR_PROJECT_PATH }} \
           -c Release \
-          -o ${{ env.BUILD_OUTPUT_ROOT }} \
-          /p:BasePath=/ # Render Static Site lo servirá desde su raíz
+          -o ${{ env.BUILD_OUTPUT_ROOT_FOLDER_NAME }} \
+          /p:BasePath=/
         
-        echo "✅ Blazor WebAssembly publicado en ${{ env.BUILD_OUTPUT_ROOT }}"
+        echo "✅ Blazor WebAssembly publicado en ${{ env.BUILD_OUTPUT_ROOT_FOLDER_NAME }}"
     
     - name: Configurar URL de API
       run: |
-        # Usamos PUBLISH_DIR que apunta a wwwroot
-        cat > ${{ env.PUBLISH_DIR }}/appsettings.json <<EOF
+        # Construimos la ruta completa a wwwroot dentro del script
+        PUBLISH_DIR="${{ env.BUILD_OUTPUT_ROOT_FOLDER_NAME }}/wwwroot"
+        cat > "$PUBLISH_DIR/appsettings.json" <<EOF
         {
           "ApiBaseUrl": "${{ secrets.API_BASE_URL }}"
         }
@@ -55,9 +58,10 @@ jobs:
 
     - name: Configurar para Static Site
       run: |
-        # Usamos PUBLISH_DIR que apunta a wwwroot
-        touch ${{ env.PUBLISH_DIR }}/.nojekyll
-        cp ${{ env.PUBLISH_DIR }}/index.html ${{ env.PUBLISH_DIR }}/404.html
+        # Construimos la ruta completa a wwwroot dentro del script
+        PUBLISH_DIR="${{ env.BUILD_OUTPUT_ROOT_FOLDER_NAME }}/wwwroot"
+        touch "$PUBLISH_DIR/.nojekyll"
+        cp "$PUBLISH_DIR/index.html" "$PUBLISH_DIR/404.html"
         echo "✅ Configuración adicional para Static Site completada."
 
     - name: Commit y Push los archivos generados
@@ -66,12 +70,11 @@ jobs:
       with:
         commit_message: "Build: Blazor WASM for Render Static Site"
         branch: main
-        file_pattern: ${{ env.BUILD_OUTPUT_ROOT }}/** # ¡IMPORTANTE! Commit de toda la carpeta 'deploy'
-        # Esto asegura que todo el contenido generado en 'deploy/' se suba.
+        # El file_pattern debe apuntar a la carpeta raíz de salida
+        file_pattern: ${{ env.BUILD_OUTPUT_ROOT_FOLDER_NAME }}/** 
 
     - name: Trigger Render Frontend Deploy Hook
       run: |
         echo "🚀 Triggering Render frontend deploy..."
-        # Utilicemos el nombre de secret correcto, que es RENDER_FRONTEND_DEPLOY_HOOK
         curl -X GET "${{ secrets.RENDER_FRONTEND_DEPLOY_HOOK }}" 
         echo "✅ Render frontend deploy hook triggered."
