@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "FULL",
+    "Projects": [
+      {
+        "Path": "src\\CCC_Api\\CCC.Api.csproj",
+        "Action": "StartWithoutDebugging",
+        "DebugTarget": "IIS Express"
+      },
+      {
+        "Path": "src\\CCC_Front\\CCC.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      }
+    ]
+  }
+]

@@ -1,0 +1,39 @@
+﻿@using System.Net.Mail
+@using System.Security.Claims
+@using CCC.Services
+@using CCC.Services.Notification
+@using CCC.Services.Utils
+@inject IAuthService AuthService
+<AuthorizeView>
+    <Authorized>
+        <MudOverlay Style="width:100%" @bind-Visible="loading" ZIndex="99999" DarkBackground AutoClose="false" Absolute="true" Modal="true">
+            <MudLoading Loading="loading" LoaderType="LoaderType.Circular" />
+        </MudOverlay>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+    private bool loading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LinkAccount();
+    }
+
+    private async Task LinkAccount()
+    {
+        try
+        {
+            await AuthService.LinkGoogleAccount();
+            loading = false;
+        }
+        catch (Exception ex)
+        {
+            SentrySdk.CaptureException(ex);
+            if(ex is ControledException)
+                NotificationService.ShowWarning(ex.Message);
+            else
+                NotificationService.ShowError("Ocurrió un error al vincular la cuenta.");
+        }
+    }
+}

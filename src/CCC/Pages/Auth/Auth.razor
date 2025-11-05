@@ -1,0 +1,139 @@
+﻿@page "/login"
+@using CCC.Services
+@using CCC.Services.Notification
+@using CCC.Services.Utils
+@inject IAuthService AuthService
+@inject NavigationManager NavManager
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="d-flex align-center justify-center fill-height" Style="height: 100%;">
+
+    <MudCard Elevation="10" Style="margin-top:30%; margin-left:50%; margin-right:50%; width: 100%; max-width: 450px; padding: 30px 20px; min-height: 500px; text-align: center;">
+
+        <MudCardHeader Class="pb-4">
+            <MudText Align="Align.Center" Typo="Typo.h4" Class="mud-text-primary text-center">¡Bienvenido!</MudText> <br/>
+        </MudCardHeader>
+
+        <MudCardContent>
+            <MudTabs Elevation="0" Rounded="true"  Class="mb-4" Style="width:100%">
+                <MudTabPanel Text="Iniciar Sesión">
+                    <MudLoading @bind-Loading="@LoadingService.IsLoading" LoaderType="LoaderType.Linear">
+                        <MudForm style="margin-top:50px" Model="loginDTO" Class="mt-4" Spacing="4">
+                            <MudTextField @bind-Value="loginDTO.Email" Label="Correo Electrónico" Variant="Variant.Text" Required="true" RequiredError="¡El correo es requerido!"
+                                          Margin="Margin.Normal" />
+                            <MudPasswordField @bind-Value="loginDTO.Password" Label="Contraseña" Variant="Variant.Text" InputType="InputType.Password" Required="true" RequiredError="¡La contraseña es requerida!"
+                                          Margin="Margin.Normal" />
+
+                            <div class="d-flex justify-center mt-6 gap-3">
+
+                                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="LoginAsync" Class="flex-grow-1">
+                                    Iniciar Sesión
+                                </MudButton>
+                                <MudButton StartIcon="@Icons.Custom.Brands.Google" Variant="Variant.Outlined" Color="Color.Secondary" OnClick="LoginWithGoogleAsync" Class="flex-grow-1">
+                                    Google
+                                </MudButton>
+                            </div>
+                        </MudForm>
+                    </MudLoading>
+                </MudTabPanel>
+
+                <MudTabPanel Text="Registrarse">
+                    <MudLoading @bind-Loading="@LoadingService.IsLoading" LoaderType="LoaderType.Linear">
+                        <MudForm style="margin-top:50px" Model="registerDTO" Class="mt-4" Spacing="4">
+                            <MudTextField @bind-Value="registerDTO.Email" Label="Correo Electrónico" Variant="Variant.Text" Required="true" RequiredError="¡El correo es requerido!"
+                                          Margin="Margin.Normal" />
+                            <MudPasswordField @bind-Value="registerDTO.Password" Label="Contraseña" Variant="Variant.Text" InputType="InputType.Password" Required="true" RequiredError="¡La contraseña es requerida!"
+                                          Margin="Margin.Normal" />
+                            <MudPasswordField @bind-Value="confirmPassword" Label="Confirmar contraseña" Variant="Variant.Text" InputType="InputType.Password" Required="true" RequiredError="¡La contraseña es requerida!"
+                                              Margin="Margin.Normal" />
+                            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="RegisterAsync" Class="flex-grow-1">
+                                Registrarse
+                            </MudButton>
+                        </MudForm>
+                    </MudLoading>
+                </MudTabPanel>
+            </MudTabs>
+        </MudCardContent>
+    </MudCard>
+</MudContainer>
+
+@code {
+
+    [Parameter]
+    [SupplyParameterFromQuery]
+    public string? ReturnUrl { get; set; }
+
+    private LoginDTO loginDTO = new LoginDTO();
+    private LoginDTO registerDTO = new LoginDTO();
+    private string? token = "";
+    private string confirmPassword = "";
+
+    private async Task LoginAsync()
+    {
+        LoadingService.Loading(true);
+        try
+        {
+            var response = await AuthService.LoginAsync(loginDTO);
+            if (!(response is SessionDTO))
+            {
+                throw new Exception("Respuesta inválida del servicio de autenticación.");
+            }
+        }
+        catch (Exception e)
+        {
+            SentrySdk.CaptureException(e);
+            NotificationService.ShowError("Error al iniciar sesión: " + e.Message);
+        }
+        finally
+        {
+            LoadingService.Loading(false);
+        }
+    }
+
+    private async Task RegisterAsync()
+    {
+        LoadingService.Loading(true);
+        try
+        {
+            if (!confirmPassword.Equals(registerDTO.Password))
+            {
+                throw new ControledException("Las contraseñas no coinciden.");
+            }
+            var response = await AuthService.RegisterAsync(registerDTO);
+            if (!(response is SessionDTO))
+            {
+                throw new ControledException("Respuesta inválida del servicio de autenticación.");
+            }
+        }
+        catch (Exception e)
+        {
+            SentrySdk.CaptureException(e);
+            NotificationService.ShowError("Error al registrarse: " + e.Message);
+        }
+        finally
+        {
+            LoadingService.Loading(false);
+        }
+    }
+
+    private async Task LoginWithGoogleAsync()
+    {
+        LoadingService.Loading(true);
+        try
+        {
+            var response = await AuthService.LoginWithGoogleAsync();
+            if (! (response is SessionDTO))
+            {
+                throw new ControledException("Respuesta inválida del servicio de autenticación.");
+            }
+        }
+        catch (Exception e)
+        {
+            SentrySdk.CaptureException(e);
+            NotificationService.ShowError("Error al iniciar sesión: " + e.Message);
+        }
+        finally
+        {
+            LoadingService.Loading(false);
+        }
+    }
+}

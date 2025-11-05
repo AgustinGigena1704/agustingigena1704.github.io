@@ -1,0 +1,25 @@
+﻿@page "/home"
+@attribute [Authorize]
+@using CCC.Services
+@using CCC.Services.Notification
+@using CCC.Services.Utils
+@inject IAuthService AuthService
+@inject HttpClient BackEnd
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+<MudButton onclick="@Test">TEST</MudButton>
+
+Welcome to your new app.
+
+
+@code {
+    public async Task Test()
+    {
+        LoadingService.Loading(true);
+        await Task.Delay(3000);
+        LoadingService.Loading(false);
+    }
+}

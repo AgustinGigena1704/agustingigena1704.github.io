@@ -1,0 +1,402 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Repositorios\\Desport\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6E52917E-CCF0-B09E-A4C8-ACCC3A4BD095}|src\\CCC_Api\\CCC.Api.csproj|d:\\repositorios\\desport\\src\\ccc_api\\data\\entities\\repositories\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E52917E-CCF0-B09E-A4C8-ACCC3A4BD095}|src\\CCC_Api\\CCC.Api.csproj|solutionrelative:src\\ccc_api\\data\\entities\\repositories\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.Web.csproj|d:\\repositorios\\desport\\src\\ccc_front\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.Web.csproj|solutionrelative:src\\ccc_front\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E52917E-CCF0-B09E-A4C8-ACCC3A4BD095}|src\\CCC_Api\\CCC.Api.csproj|d:\\repositorios\\desport\\src\\ccc_api\\attributes\\repositoryattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E52917E-CCF0-B09E-A4C8-ACCC3A4BD095}|src\\CCC_Api\\CCC.Api.csproj|solutionrelative:src\\ccc_api\\attributes\\repositoryattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E52917E-CCF0-B09E-A4C8-ACCC3A4BD095}|src\\CCC_Api\\CCC.Api.csproj|d:\\repositorios\\desport\\src\\ccc_api\\data\\entities\\repositories\\movimientorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E52917E-CCF0-B09E-A4C8-ACCC3A4BD095}|src\\CCC_Api\\CCC.Api.csproj|solutionrelative:src\\ccc_api\\data\\entities\\repositories\\movimientorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E52917E-CCF0-B09E-A4C8-ACCC3A4BD095}|src\\CCC_Api\\CCC.Api.csproj|d:\\repositorios\\desport\\src\\ccc_api\\controllers\\movimientocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E52917E-CCF0-B09E-A4C8-ACCC3A4BD095}|src\\CCC_Api\\CCC.Api.csproj|solutionrelative:src\\ccc_api\\controllers\\movimientocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E52917E-CCF0-B09E-A4C8-ACCC3A4BD095}|src\\CCC_Api\\CCC.Api.csproj|d:\\repositorios\\desport\\src\\ccc_api\\data\\entities\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E52917E-CCF0-B09E-A4C8-ACCC3A4BD095}|src\\CCC_Api\\CCC.Api.csproj|solutionrelative:src\\ccc_api\\data\\entities\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E52917E-CCF0-B09E-A4C8-ACCC3A4BD095}|src\\CCC_Api\\CCC.Api.csproj|d:\\repositorios\\desport\\src\\ccc_api\\ccc_api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{6E52917E-CCF0-B09E-A4C8-ACCC3A4BD095}|src\\CCC_Api\\CCC.Api.csproj|solutionrelative:src\\ccc_api\\ccc_api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|d:\\repositorios\\desport\\src\\ccc_front\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|solutionrelative:src\\ccc_front\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|d:\\repositorios\\desport\\src\\ccc_front\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|solutionrelative:src\\ccc_front\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|d:\\repositorios\\desport\\src\\ccc_front\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|solutionrelative:src\\ccc_front\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|d:\\repositorios\\desport\\src\\ccc_front\\services\\auth\\authstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|solutionrelative:src\\ccc_front\\services\\auth\\authstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|d:\\repositorios\\desport\\src\\ccc_front\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|solutionrelative:src\\ccc_front\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|d:\\repositorios\\desport\\src\\ccc_front\\utils\\testerror.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|solutionrelative:src\\ccc_front\\utils\\testerror.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|d:\\repositorios\\desport\\src\\ccc_front\\layout\\components\\mainmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|solutionrelative:src\\ccc_front\\layout\\components\\mainmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|d:\\repositorios\\desport\\src\\ccc_front\\utils\\loadingoverlay.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|solutionrelative:src\\ccc_front\\utils\\loadingoverlay.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|d:\\repositorios\\desport\\src\\ccc_front\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|solutionrelative:src\\ccc_front\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|d:\\repositorios\\desport\\src\\ccc_front\\utils\\addpassword.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|solutionrelative:src\\ccc_front\\utils\\addpassword.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|d:\\repositorios\\desport\\src\\ccc_front\\utils\\addgoogle.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|solutionrelative:src\\ccc_front\\utils\\addgoogle.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|d:\\repositorios\\desport\\src\\ccc_front\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|solutionrelative:src\\ccc_front\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|d:\\repositorios\\desport\\src\\ccc_front\\pages\\auth\\auth.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|solutionrelative:src\\ccc_front\\pages\\auth\\auth.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|d:\\repositorios\\desport\\src\\ccc_front\\ccc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{4FF26D29-3F78-DAB7-EF7C-E768E99573AF}|src\\CCC_Front\\CCC.csproj|solutionrelative:src\\ccc_front\\ccc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E52917E-CCF0-B09E-A4C8-ACCC3A4BD095}|src\\CCC_Api\\CCC.Api.csproj|d:\\repositorios\\desport\\src\\ccc_api\\ccc.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{6E52917E-CCF0-B09E-A4C8-ACCC3A4BD095}|src\\CCC_Api\\CCC.Api.csproj|solutionrelative:src\\ccc_api\\ccc.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsuarioRepository.cs",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Api\\Data\\Entities\\Repositories\\UsuarioRepository.cs",
+              "RelativeDocumentMoniker": "src\\CCC_Api\\Data\\Entities\\Repositories\\UsuarioRepository.cs",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Api\\Data\\Entities\\Repositories\\UsuarioRepository.cs",
+              "RelativeToolTip": "src\\CCC_Api\\Data\\Entities\\Repositories\\UsuarioRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T23:24:37.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RepositoryAttribute.cs",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Api\\Attributes\\RepositoryAttribute.cs",
+              "RelativeDocumentMoniker": "src\\CCC_Api\\Attributes\\RepositoryAttribute.cs",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Api\\Attributes\\RepositoryAttribute.cs",
+              "RelativeToolTip": "src\\CCC_Api\\Attributes\\RepositoryAttribute.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T23:24:31.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MovimientoRepository.cs",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Api\\Data\\Entities\\Repositories\\MovimientoRepository.cs",
+              "RelativeDocumentMoniker": "src\\CCC_Api\\Data\\Entities\\Repositories\\MovimientoRepository.cs",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Api\\Data\\Entities\\Repositories\\MovimientoRepository.cs",
+              "RelativeToolTip": "src\\CCC_Api\\Data\\Entities\\Repositories\\MovimientoRepository.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T23:24:28.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MovimientoController.cs",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Api\\Controllers\\MovimientoController.cs",
+              "RelativeDocumentMoniker": "src\\CCC_Api\\Controllers\\MovimientoController.cs",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Api\\Controllers\\MovimientoController.cs",
+              "RelativeToolTip": "src\\CCC_Api\\Controllers\\MovimientoController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T23:24:26.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Home.razor",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "src\\CCC_Front\\Pages\\Home.razor",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Pages\\Home.razor*",
+              "RelativeToolTip": "src\\CCC_Front\\Pages\\Home.razor*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-04T23:16:49.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GenericRepository.cs",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Api\\Data\\Entities\\Repositories\\GenericRepository.cs",
+              "RelativeDocumentMoniker": "src\\CCC_Api\\Data\\Entities\\Repositories\\GenericRepository.cs",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Api\\Data\\Entities\\Repositories\\GenericRepository.cs",
+              "RelativeToolTip": "src\\CCC_Api\\Data\\Entities\\Repositories\\GenericRepository.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T23:24:23.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CCC_Api.http",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Api\\CCC_Api.http",
+              "RelativeDocumentMoniker": "src\\CCC_Api\\CCC_Api.http",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Api\\CCC_Api.http",
+              "RelativeToolTip": "src\\CCC_Api\\CCC_Api.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-11-04T23:24:00.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Program.cs",
+              "RelativeDocumentMoniker": "src\\CCC_Front\\Program.cs",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Program.cs",
+              "RelativeToolTip": "src\\CCC_Front\\Program.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAUAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T23:21:44.686Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "index.html",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Front\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "src\\CCC_Front\\wwwroot\\index.html",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Front\\wwwroot\\index.html",
+              "RelativeToolTip": "src\\CCC_Front\\wwwroot\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-11-04T23:20:53.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Services\\IAuthService.cs",
+              "RelativeDocumentMoniker": "src\\CCC_Front\\Services\\IAuthService.cs",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Services\\IAuthService.cs",
+              "RelativeToolTip": "src\\CCC_Front\\Services\\IAuthService.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T23:20:49.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AuthStateProvider.cs",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Services\\Auth\\AuthStateProvider.cs",
+              "RelativeDocumentMoniker": "src\\CCC_Front\\Services\\Auth\\AuthStateProvider.cs",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Services\\Auth\\AuthStateProvider.cs",
+              "RelativeToolTip": "src\\CCC_Front\\Services\\Auth\\AuthStateProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T23:20:42.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Front\\_Imports.razor",
+              "RelativeDocumentMoniker": "src\\CCC_Front\\_Imports.razor",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Front\\_Imports.razor",
+              "RelativeToolTip": "src\\CCC_Front\\_Imports.razor",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAUAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-04T23:20:08.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "TestError.razor",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Utils\\TestError.razor",
+              "RelativeDocumentMoniker": "src\\CCC_Front\\Utils\\TestError.razor",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Utils\\TestError.razor",
+              "RelativeToolTip": "src\\CCC_Front\\Utils\\TestError.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-04T23:20:04.27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MainMenu.razor",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Layout\\Components\\MainMenu.razor",
+              "RelativeDocumentMoniker": "src\\CCC_Front\\Layout\\Components\\MainMenu.razor",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Layout\\Components\\MainMenu.razor",
+              "RelativeToolTip": "src\\CCC_Front\\Layout\\Components\\MainMenu.razor",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAIAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-04T23:19:55.267Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "LoadingOverlay.razor",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Utils\\LoadingOverlay.razor",
+              "RelativeDocumentMoniker": "src\\CCC_Front\\Utils\\LoadingOverlay.razor",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Utils\\LoadingOverlay.razor",
+              "RelativeToolTip": "src\\CCC_Front\\Utils\\LoadingOverlay.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-04T23:19:49.584Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "App.razor",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Front\\App.razor",
+              "RelativeDocumentMoniker": "src\\CCC_Front\\App.razor",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Front\\App.razor",
+              "RelativeToolTip": "src\\CCC_Front\\App.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-04T23:19:38.918Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AddPassword.razor",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Utils\\AddPassword.razor",
+              "RelativeDocumentMoniker": "src\\CCC_Front\\Utils\\AddPassword.razor",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Utils\\AddPassword.razor",
+              "RelativeToolTip": "src\\CCC_Front\\Utils\\AddPassword.razor",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAIAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-04T23:19:30.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AddGoogle.razor",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Utils\\AddGoogle.razor",
+              "RelativeDocumentMoniker": "src\\CCC_Front\\Utils\\AddGoogle.razor",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Utils\\AddGoogle.razor",
+              "RelativeToolTip": "src\\CCC_Front\\Utils\\AddGoogle.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-04T23:18:41.881Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "src\\CCC_Front\\Layout\\MainLayout.razor",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "src\\CCC_Front\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-04T23:18:14.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Auth.razor",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Pages\\Auth\\Auth.razor",
+              "RelativeDocumentMoniker": "src\\CCC_Front\\Pages\\Auth\\Auth.razor",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Front\\Pages\\Auth\\Auth.razor",
+              "RelativeToolTip": "src\\CCC_Front\\Pages\\Auth\\Auth.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-04T23:18:03.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "CCC.csproj",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Front\\CCC.csproj",
+              "RelativeDocumentMoniker": "src\\CCC_Front\\CCC.csproj",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Front\\CCC.csproj",
+              "RelativeToolTip": "src\\CCC_Front\\CCC.csproj",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-04T23:16:43.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CCC.Api",
+              "DocumentMoniker": "D:\\Repositorios\\Desport\\src\\CCC_Api\\CCC.Api.csproj",
+              "RelativeDocumentMoniker": "src\\CCC_Api\\CCC.Api.csproj",
+              "ToolTip": "D:\\Repositorios\\Desport\\src\\CCC_Api\\CCC.Api.csproj",
+              "RelativeToolTip": "src\\CCC_Api\\CCC.Api.csproj",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACAAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-04T23:16:28.169Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

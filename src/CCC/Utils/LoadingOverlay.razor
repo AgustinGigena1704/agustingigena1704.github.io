@@ -1,0 +1,21 @@
+﻿@using CCC.Services.Notification
+@using CCC.Services.Utils
+@if (LoadingService.IsLoading)
+{
+    Console.WriteLine("MostrandoOverlay");
+    <MudOverlay Style="width:100%" DarkBackground @bind-Visible="LoadingService.IsLoading" ZIndex="10" AutoClose="false" Absolute="true" Modal="true">
+        <MudLoading Style="z-index:11" LoaderType="LoaderType.Circular" />
+    </MudOverlay>
+}
+
+@code {
+    protected override void OnInitialized()
+    {
+        LoadingService.OnLoadingStateChanged += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        LoadingService.OnLoadingStateChanged -= StateHasChanged;
+    }
+}

@@ -1,0 +1,37 @@
+﻿@using CCC.Services.Notification
+@using CCC.Services.Utils
+@inject NavigationManager NavManager
+<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(App).Assembly" >
+        <Found Context="routeData">
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+                <NotAuthorized>
+                    @if (context.User.Identity?.IsAuthenticated ?? false)
+                    {
+                        <p role="alert">No estas autorizado a ingresar a esta pagina.</p>
+                    }
+                    else
+                    {
+                        var returnUrl = NavManager.ToBaseRelativePath(NavManager.Uri);
+                        if (returnUrl.Contains("returnUrl"))
+                        {
+                            var index = returnUrl.IndexOf("=");
+                            var trueUri = returnUrl.Substring(index);
+                            NavManager.NavigateTo($"/login?returnUrl={trueUri}");
+                        }
+                        else
+                        {
+                            NavManager.NavigateTo($"/login?returnUrl={returnUrl}");
+                        }
+                    }
+                </NotAuthorized>
+            </AuthorizeRouteView>
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        </Found>
+        <NotFound>
+            @{
+                NavManager.NavigateTo("/home");
+            }
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>

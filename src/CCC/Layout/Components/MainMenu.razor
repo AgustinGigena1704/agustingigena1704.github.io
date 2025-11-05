@@ -1,0 +1,51 @@
+﻿@inject IAuthService AuthService
+@using System.Reflection;
+@using CCC.Services
+@using CCC.Services.Notification
+@using CCC.Services.Utils
+<MudDrawer @bind-Open="@IsOpen" Elevation="2" Style="display: flex;">
+    <MudDrawerHeader>
+        <MudText Typo="Typo.h6" Class="d-flex align-center">
+            <MudIcon Icon="@Icons.Material.Filled.Dashboard" Class="mr-2" /> Menu Principal
+        </MudText>
+    </MudDrawerHeader>
+    <MudNavMenu>
+        <MudNavLink Href="">Inicio</MudNavLink>
+    </MudNavMenu>
+    <MudSpacer/>
+    <MudDivider DividerType="DividerType.Middle" />
+    <MudButton Style="width:89%; align-self:center;" FullWidth="false" OnClick="LogOutAsync">Cerrar Sesión</MudButton>
+    <MudDivider DividerType="DividerType.Middle"/>
+    <MudButton FullWidth="false" Disabled="true">Version: @appVersion</MudButton>
+</MudDrawer>
+
+@code {
+    [Parameter, EditorRequired]
+    public bool IsOpen { get; set; }
+    public string appVersion = "";
+
+    protected override void OnInitialized()
+    {
+        appVersion = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "Desconocida";
+    }
+
+    private async Task LogOutAsync()
+    {
+        try
+        {
+            await AuthService.LogoutAsync();
+        }
+        catch(Exception e)
+        {
+            SentrySdk.CaptureException(e);
+            if(e is ControledException)
+            {
+                NotificationService.ShowWarning(e.Message);
+            }
+            else
+            {
+                NotificationService.ShowError(e.Message);
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+﻿@using CCC.Services.Notification
+@using CCC.Services.Utils
+<h3>TestError</h3>
+
+@code {
+    protected override void OnInitialized()
+    {
+        throw new InvalidOperationException("This is a test exception from TestError component.");
+    }
+}
