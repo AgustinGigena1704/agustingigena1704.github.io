@@ -114,8 +114,18 @@ GoogleCredential credential;
 
 if (!string.IsNullOrEmpty(firebaseJson))
 {
-    // Producción: desde variable de entorno en Render
-    credential = GoogleCredential.FromJson(firebaseJson);
+    try
+    {
+        // Validar que el JSON sea válido
+        var jsonObject = System.Text.Json.JsonDocument.Parse(firebaseJson);
+
+        // Producción: desde variable de entorno en Render
+        credential = GoogleCredential.FromJson(firebaseJson);
+    }
+    catch (Exception ex)
+    {
+        throw new InvalidOperationException("El JSON proporcionado en la variable de entorno FIREBASE_CONFIG no es válido.", ex);
+    }
 }
 else
 {
@@ -123,7 +133,18 @@ else
     var serviceAccountPath = Path.Combine(Directory.GetCurrentDirectory(), "Secrets/firebase-proyect-data.json");
     if (File.Exists(serviceAccountPath))
     {
-        credential = GoogleCredential.FromFile(serviceAccountPath);
+        try
+        {
+            var fileContent = File.ReadAllText(serviceAccountPath);
+            // Validar que el JSON sea válido
+            var jsonObject = System.Text.Json.JsonDocument.Parse(fileContent);
+
+            credential = GoogleCredential.FromJson(fileContent);
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException("El archivo de configuración Firebase no es válido.", ex);
+        }
     }
     else
     {
