@@ -55,12 +55,6 @@ jobs:
         
         echo "✅ API configurada: ${{ secrets.API_BASE_URL }}"
 
-    - name: Configurar para Static Site (si es necesario)
-      run: |
-        touch ${{ env.DEPLOY_DIR }}/.nojekyll
-        cp ${{ env.DEPLOY_DIR }}/index.html ${{ env.DEPLOY_DIR }}/404.html
-        echo "✅ Configuración adicional para Static Site completada."
-
     - name: Commit y Push los archivos generados
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
